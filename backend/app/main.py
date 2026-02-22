@@ -12,12 +12,11 @@ from app.services.quiz import generate_quiz
 
 app = FastAPI()
 
+origins = ['*']
+
 app.add_middleware(
     CORSMiddleware,
-        allow_origins=[
-        "https://python-fs-next.vercel.app",  # your frontend
-        "http://localhost:3000"               # for local dev
-    ],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

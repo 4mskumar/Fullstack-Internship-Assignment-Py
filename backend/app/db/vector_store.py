@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-supabase = create_client(os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_KEY"))
+supabase = create_client('https://kuoeatsxjdnwbdwzwgzq.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt1b2VhdHN4amRud2Jkd3p3Z3pxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE2NTYzMjUsImV4cCI6MjA4NzIzMjMyNX0.pfnc5305ZP2Qi3UrIeMdRi-m_qYTvtbybdNGXhrmrqA')
 
 
 def store_chunks(chunks, embeddings, course_id):
