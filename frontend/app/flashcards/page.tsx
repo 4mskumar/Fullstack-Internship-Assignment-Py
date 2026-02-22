@@ -31,7 +31,7 @@ export default function FlashcardsPage() {
 
   // fetch courses (same as quiz)
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/courses")
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/courses`)
       .then((res) => res.json())
       .then((data) => setCourses(data.courses || []))
       .catch(() => toast.error("Failed to load courses"));
@@ -43,7 +43,7 @@ export default function FlashcardsPage() {
     setLoading(true);
     setFlipped(null);
 
-    const res = await fetch("http://127.0.0.1:8000/generate-flashcards", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/generate-flashcards`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ course_id: courseId }),

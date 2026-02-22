@@ -52,12 +52,12 @@ export default function Home() {
 
     try {
       setLoading(true);
-      const res = await fetch("http://127.0.0.1:8000/process-pdf", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/process-pdf`, {
         method: "POST",
         body: formData,
       });
 
-      const res2 = await fetch("http://127.0.0.1:8000/courses", {
+      const res2 = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/courses`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name: courseName }),
@@ -78,7 +78,7 @@ export default function Home() {
 
     try {
       setLoading(true);
-      const res = await fetch("http://127.0.0.1:8001/process-video", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/process-video`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ youtube_url: videoUrl, course_id: courseName }),
